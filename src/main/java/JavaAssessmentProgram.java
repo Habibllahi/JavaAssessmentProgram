@@ -1,4 +1,4 @@
-import java.lang.reflect.Array;
+import java.util.Arrays;
 
 public class JavaAssessmentProgram {
     private static Console console = new Console();
@@ -53,15 +53,15 @@ public class JavaAssessmentProgram {
         }
 
         private int calculateSumOfArrayElement(int[] elements){
-            var total = 0;
-            for(var element : elements){
-                total = total + element;
-            }
-            return total;
+            return Arrays.stream(elements).sum();
         }
 
         private int calculateAverageOfArrayElement(int[] elements){
-            return calculateSumOfArrayElement(elements)/elements.length;
+            return (int) Arrays.stream(elements).average().getAsDouble();
+        }
+
+        private int findSmallestNumberInAnArray(int[] elements){
+            return Arrays.stream(elements).min().getAsInt();
         }
 
         private void writeLine(int result){
