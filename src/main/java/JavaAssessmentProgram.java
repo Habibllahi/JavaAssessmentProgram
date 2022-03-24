@@ -50,6 +50,8 @@ public class JavaAssessmentProgram {
             var elements = new int[]{25,4,33,87,2,99,60,19,81,45,10,19,72};
             writeLine(calculateSumOfArrayElement(elements));
             writeLine(calculateAverageOfArrayElement(elements));
+            writeLine(findSmallestNumberInAnArray(elements));
+            writeLine(findIndex(elements,findSmallestNumberInAnArray(elements)));
         }
 
         private int calculateSumOfArrayElement(int[] elements){
@@ -64,8 +66,37 @@ public class JavaAssessmentProgram {
             return Arrays.stream(elements).min().getAsInt();
         }
 
+        // Linear-search function to find the index of an element
+        public static int findIndex(int[] arr, int element)
+        {
+
+            // if array is Null
+            if (arr == null) {
+                return -1;
+            }
+
+            // find length of array
+            int len = arr.length;
+            int i = 0;
+
+            // traverse in the array
+            while (i < len) {
+
+                // if the i-th element is t
+                // then return the index
+                if (arr[i] == element) {
+                    return i;
+                }
+                else {
+                    i = i + 1;
+                }
+            }
+            return -1;
+        }
+
         private void writeLine(int result){
             System.out.println("Answer is: " + result);
         }
+
     }
 }
